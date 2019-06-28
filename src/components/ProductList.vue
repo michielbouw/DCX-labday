@@ -1,10 +1,11 @@
 <template>
   <div class="list">
-    <ul>
-      <li v-for="item in items" v-bind:key="item.id">
+    My list:
+    <b-list-group>
+      <b-list-group-item v-for="item in items" v-bind:key="item.id">
         <ListItem :data="item" @remove="removeItem" />
-      </li>
-    </ul>
+      </b-list-group-item>
+    </b-list-group>
   </div>
 </template>
 
@@ -35,9 +36,8 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-ul {
-  list-style: none;
+.list {
+  margin-top: 32px;
 }
 </style>
