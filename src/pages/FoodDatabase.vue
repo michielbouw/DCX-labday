@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <hr />
+  <main-layout>
     <b>Food database:</b>
     <p v-for="item in food">
       ID: {{ item.id }},
@@ -11,15 +10,18 @@
     Add new:
     <input v-model="name" placeholder="Food Name">
     <button v-on:click="addFood(name)">Add</button>
-    <hr />
-  </div>
+  </main-layout>
 </template>
 
 <script>
+import MainLayout from '../layouts/Main.vue'
 import { db, foodCollection } from '../firebase'
 
 export default {
-  name: 'Main',
+  name: 'foodDatabase',
+  components: {
+    MainLayout
+  },
   props: {
     msg: String
   },
