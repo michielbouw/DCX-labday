@@ -1,6 +1,7 @@
 <template>
   <div class="list">
-    My list:
+    <span v-if="listOfProducts.length">My list:</span>
+    <span v-if="!listOfProducts.length">nothing added to your list, go ahead and add something!</span>
     <b-list-group>
       <b-list-group-item v-for="item in listOfProducts" v-bind:key="item.id">
         <ListItem :data="item" @remove="removeItem" />
