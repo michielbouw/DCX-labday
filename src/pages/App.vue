@@ -7,7 +7,7 @@
         </div>
 
         <div class="summary">
-          <h1>Hier komt de samenvatting</h1>
+          <Summary/>
         </div>
       </div>
 
@@ -24,6 +24,7 @@
 import MainLayout from '../layouts/Main.vue'
 import SearchBar from '../components/SearchBar.vue'
 import ProductDetail from '../components/ProductDetail.vue'
+import Summary from '../components/Summary.vue'
 
 const product = {
     naam: 'Pastasaus',
@@ -49,7 +50,8 @@ export default {
   components: {
     MainLayout,
     SearchBar,
-    ProductDetail
+    ProductDetail,
+    Summary
   },
   methods: {
     getProductDetails: function() {
