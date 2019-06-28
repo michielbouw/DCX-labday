@@ -1,7 +1,7 @@
 <template>
   <div class="search-bar">
-    {{ msg }}
-    <autocomplete :search="search" placeholder="Search for a product"></autocomplete>
+    <autocomplete :search="search" placeholder="Search for a product" @submit="handleSubmit"></autocomplete>
+    <h1>You've selected: {{selectedResult}}</h1>
   </div>
 </template>
 
@@ -190,6 +190,11 @@ const myList = [
 
 export default {
   name: "SearchBar",
+  data() {
+    return {
+      selectedResult: ""
+    };
+  },
   components: {
     Autocomplete
   },
@@ -201,6 +206,9 @@ export default {
       return myList.filter(listItem => {
         return listItem.toLowerCase().startsWith(input.toLowerCase());
       });
+    },
+    handleSubmit(result) {
+      this.selectedResult = result;
     }
   }
 };
