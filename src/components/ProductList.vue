@@ -2,7 +2,7 @@
   <div class="list">
     <ul>
       <li v-for="item in items" v-bind:key="item.id">
-        <ListItem :data="item" @remove="removeItem" />
+        <ListItem :data="item" @openProductDetails="openProductDetails" @remove="removeItem" />
       </li>
     </ul>
   </div>
@@ -13,6 +13,9 @@ import ListItem from "./ListItem.vue";
 
 export default {
   name: "List",
+  data: {
+    selectedProduct: Object
+  },
   data() {
     return {
       items: [
@@ -26,6 +29,12 @@ export default {
       ListItem
   },
   methods: {
+    openProductDetails(value) {
+      if(value) {
+        this.$emit('openProductDetails', value);
+        // this.selectedProduct = value;
+      }
+    },
     removeItem(value) {
       if (value) {
         this.items = this.items.filter(item => item.id !== value);

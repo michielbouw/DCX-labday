@@ -1,6 +1,8 @@
 <template>
   <div class="product-detail">
-    <h1>{{product.naam}}</h1>
+    {{product.id}}
+
+    <!-- <h1>{{product.naam}}</h1>
     <h2>Nutritional values</h2>
     <p><label>Salt</label> 
     {{product.zout}} grams</p>
@@ -33,7 +35,7 @@
     <p><label>Plastic</label> 
     {{product.afval.plastic? 'Yes': 'No'}}</p>
     <p><label>Residual waste</label> 
-    {{product.afval.rest? 'Yes': 'No'}}</p>
+    {{product.afval.rest? 'Yes': 'No'}}</p> -->
   </div>
 </template>
 

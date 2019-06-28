@@ -7,14 +7,14 @@
         </div>
 
         <div class="summary">
-          <ProductList />
+          <ProductList @openProductDetails="openProductDetails" :selectedProduct="selectedProduct"/>
           <h1>Hier komt de samenvatting</h1>
         </div>
       </div>
 
       <div id="detailWidget">
         <div class="detail">
-          <ProductDetail :product="getProductDetails()" />
+          <ProductDetail :product="selectedProduct" />
         </div>
       </div>
     </div>
@@ -54,9 +54,15 @@ export default {
     ProductDetail,
     ProductList
   },
+  data: {
+    selectedProduct: Object
+  },
   methods: {
-    getProductDetails: function() {
-      return product;
+    openProductDetails: function(value) {
+      this.selectedProduct = value;
+      
+      console.log("open product", this.selectedProduct);
+      // return product;
     }
   }
 }
