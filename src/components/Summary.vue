@@ -1,22 +1,22 @@
 <template>
   <div class="main">
       <span>
-          <button v-on:click="filter">CO2</button>
+          <b-button type="button" pill variant="info" v-on:click="filter">CO2</b-button>
           <p v-if="CO2"> {{ CO2 }}  g</p>
       </span>
 
       <span>
-          <button v-on:click="filter">Salt</button>
+          <b-button type="button" pill variant="info" v-on:click="filter">Salt</b-button>
           <p v-if="Salt"> {{Salt}} g</p>
       </span>
 
             <span>
-          <button v-on:click="filter">Sugar</button>
+          <b-button type="button" pill variant="info" v-on:click="filter">Sugar</b-button>
           <p v-if="Sugar"> {{Sugar}}g </p>
       </span>
 
       <span>
-          <button v-on:click="filter">Fat</button>
+          <b-button type="button" pill variant="info" v-on:click="filter">Fat</b-button>
           <p v-if="Fat"> {{Fat}} g</p>
       </span>
 </div>
@@ -49,8 +49,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.main {
-    display: flex;
+  .main {
+     display: flex;
+   flex-wrap: wrap;
 }
 
 span {
@@ -58,7 +59,14 @@ span {
 }
 
 button {
-    width: 140px;
-    height: 40px;
+  width: 90px;
+}
+
+@media (min-width: 768px) {
+  .main {
+     display: flex;
+   flex-wrap: wrap;
+    justify-content: space-evenly;
+}
 }
 </style>
