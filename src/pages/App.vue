@@ -77,20 +77,21 @@ export default {
 .body {
   background: rgb(236, 236, 236);
 }
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 32px;
 }
 
 .product-list {
   padding: 2em;
   margin: 0em 2em 2em 0em;
   background: white;
-box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
 }
 
 .summary {
