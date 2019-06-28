@@ -1,214 +1,55 @@
 <template>
   <div class="search-bar">
-    <autocomplete :search="search" placeholder="Search for a product" @submit="handleSubmit"></autocomplete>
+    <autocomplete
+      :search="search"
+      placeholder="Search for a product"
+      :get-result-value="getResultValue"
+      @submit="handleSubmit"
+    ></autocomplete>
     <h1>You've selected: {{selectedResult}}</h1>
   </div>
 </template>
 
 <script>
 import Autocomplete from "@trevoreyre/autocomplete-vue";
-const myList = [
-  "lorem",
-  "ipsum",
-  "dolor",
-  "sit",
-  "amet",
-  "consectetur",
-  "adipiscing",
-  "elit",
-  "curabitur",
-  "vel",
-  "hendrerit",
-  "libero",
-  "eleifend",
-  "blandit",
-  "nunc",
-  "ornare",
-  "odio",
-  "ut",
-  "orci",
-  "gravida",
-  "imperdiet",
-  "nullam",
-  "purus",
-  "lacinia",
-  "a",
-  "pretium",
-  "quis",
-  "congue",
-  "praesent",
-  "sagittis",
-  "laoreet",
-  "auctor",
-  "mauris",
-  "non",
-  "velit",
-  "eros",
-  "dictum",
-  "proin",
-  "accumsan",
-  "sapien",
-  "nec",
-  "massa",
-  "volutpat",
-  "venenatis",
-  "sed",
-  "eu",
-  "molestie",
-  "lacus",
-  "quisque",
-  "porttitor",
-  "ligula",
-  "dui",
-  "mollis",
-  "tempus",
-  "at",
-  "magna",
-  "vestibulum",
-  "turpis",
-  "ac",
-  "diam",
-  "tincidunt",
-  "id",
-  "condimentum",
-  "enim",
-  "sodales",
-  "in",
-  "hac",
-  "habitasse",
-  "platea",
-  "dictumst",
-  "aenean",
-  "neque",
-  "fusce",
-  "augue",
-  "leo",
-  "eget",
-  "semper",
-  "mattis",
-  "tortor",
-  "scelerisque",
-  "nulla",
-  "interdum",
-  "tellus",
-  "malesuada",
-  "rhoncus",
-  "porta",
-  "sem",
-  "aliquet",
-  "et",
-  "nam",
-  "suspendisse",
-  "potenti",
-  "vivamus",
-  "luctus",
-  "fringilla",
-  "erat",
-  "donec",
-  "justo",
-  "vehicula",
-  "ultricies",
-  "varius",
-  "ante",
-  "primis",
-  "faucibus",
-  "ultrices",
-  "posuere",
-  "cubilia",
-  "curae",
-  "etiam",
-  "cursus",
-  "aliquam",
-  "quam",
-  "dapibus",
-  "nisl",
-  "feugiat",
-  "egestas",
-  "class",
-  "aptent",
-  "taciti",
-  "sociosqu",
-  "ad",
-  "litora",
-  "torquent",
-  "per",
-  "conubia",
-  "nostra",
-  "inceptos",
-  "himenaeos",
-  "phasellus",
-  "nibh",
-  "pulvinar",
-  "vitae",
-  "urna",
-  "iaculis",
-  "lobortis",
-  "nisi",
-  "viverra",
-  "arcu",
-  "morbi",
-  "pellentesque",
-  "metus",
-  "commodo",
-  "ut",
-  "facilisis",
-  "felis",
-  "tristique",
-  "ullamcorper",
-  "placerat",
-  "aenean",
-  "convallis",
-  "sollicitudin",
-  "integer",
-  "rutrum",
-  "duis",
-  "est",
-  "etiam",
-  "bibendum",
-  "donec",
-  "pharetra",
-  "vulputate",
-  "maecenas",
-  "mi",
-  "fermentum",
-  "consequat",
-  "suscipit",
-  "aliquam",
-  "habitant",
-  "senectus",
-  "netus",
-  "fames",
-  "quisque",
-  "euismod",
-  "curabitur",
-  "lectus",
-  "elementum",
-  "tempor",
-  "risus",
-  "cras"
-];
+import { foodCollection } from "../firebase";
 
 export default {
   name: "SearchBar",
   data() {
     return {
-      selectedResult: ""
+      selectedResult: "",
+      food: []
     };
   },
   components: {
     Autocomplete
+  },
+  mounted() {
+    foodCollection
+      .orderBy("name", "asc")
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          this.food.push(doc.data());
+        });
+      });
+
   },
   methods: {
     search(input) {
       if (input.length < 1) {
         return [];
       }
-      return myList.filter(listItem => {
-        return listItem.toLowerCase().startsWith(input.toLowerCase());
+      return this.food.filter(listItem => {
+        return listItem.name.toLowerCase().startsWith(input.toLowerCase());
       });
     },
     handleSubmit(result) {
       this.selectedResult = result;
+    },
+    getResultValue(result) {
+      return result.name;
     }
   }
 };
