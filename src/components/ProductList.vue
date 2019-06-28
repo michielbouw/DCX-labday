@@ -16,9 +16,6 @@ import ListItem from "./ListItem.vue";
 
 export default {
   name: "List",
-  data: {
-    selectedProduct: Object
-  },
   props: {
     listOfProducts: Array
   },
