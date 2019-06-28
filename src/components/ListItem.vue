@@ -27,6 +27,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .list-item {
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
 }
