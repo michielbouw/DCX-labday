@@ -89,8 +89,8 @@ export default {
 
 @media (min-width: 768px) {
   #app {
-  display: flex;
-}
+    display: flex;
+  }
 
   #mainWidget {
     display: flex;

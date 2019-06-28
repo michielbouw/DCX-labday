@@ -9,7 +9,6 @@
       @submit="handleSubmit"
     ></autocomplete>
     {{ selectedResult }}
-    <button v-if="selectedResult">add to my list</button>
   </div>
 </template>
 

@@ -1,9 +1,6 @@
-
-
-
 export default {
-    name: 'ProductDetail',
-    props: {
-      product: Object
-    }
+  name: 'ProductDetail',
+  props: {
+    product: Object
   }
+}
