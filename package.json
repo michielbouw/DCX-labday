@@ -10,8 +10,10 @@
     "deploy": "npm run build && firebase login && firebase deploy"
   },
   "dependencies": {
+    "@trevoreyre/autocomplete-vue": "^2.0.2",
     "core-js": "^2.6.5",
     "firebase": "^6.2.4",
+    "npm": "^6.9.2",
     "vue": "^2.6.10"
   },
   "devDependencies": {

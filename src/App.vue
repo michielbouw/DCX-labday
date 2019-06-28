@@ -1,16 +1,22 @@
 <template>
   <div id="app">
-    <Main msg="Amazing Environment"/>
+    <Header />
+    <FoodDatabase />
+    <SearchBar />
   </div>
 </template>
 
 <script>
-import Main from './components/Main.vue'
+import Header from './components/Header.vue'
+import SearchBar from './components/SearchBar.vue'
+import FoodDatabase from './components/FoodDatabase.vue'
 
 export default {
   name: 'app',
   components: {
-    Main
+    Header,
+    SearchBar,
+    FoodDatabase,
   }
 }
 </script>
