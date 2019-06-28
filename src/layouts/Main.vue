@@ -3,7 +3,7 @@
     <v-link href="/">Home</v-link>
     <v-link href="/database">Database</v-link>
 
-    <h1>Amazing Environment</h1>
+    <h1>How healthy am I?</h1>
     <slot></slot>
   </div>
 </template>
@@ -20,5 +20,9 @@
 <style scoped>
 a {
   margin-right: 16px;
+}
+
+.container {
+  background: rgb(236, 236, 236);
 }
 </style>

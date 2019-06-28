@@ -49,13 +49,24 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+  .main {
+     display: flex;
+   flex-wrap: wrap;
 }
 
 span {
     margin: 1em 1em;
+}
+
+button {
+  width: 90px;
+}
+
+@media (min-width: 768px) {
+  .main {
+     display: flex;
+   flex-wrap: wrap;
+    justify-content: space-evenly;
+}
 }
 </style>
