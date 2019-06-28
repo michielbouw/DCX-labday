@@ -28,9 +28,6 @@ export default {
   props: {
     listOfProducts: Array
   },
-  data: {
-
-  },
   methods: {
     filter: function () {
       // alert("Hello World");

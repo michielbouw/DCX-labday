@@ -15,8 +15,10 @@ Vue.use(BootstrapVue)
 
 const app = new Vue({
   el: '#app',
-  data: {
-    currentRoute: window.location.pathname
+  data() {
+    return {
+      currentRoute: window.location.pathname
+    };
   },
   computed: {
     ViewComponent() {

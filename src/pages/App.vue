@@ -78,7 +78,7 @@ export default {
 
 <style>
 
-html {
+html, body, .body {
   background: rgb(236, 236, 236);
 }
 
