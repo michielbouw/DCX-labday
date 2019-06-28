@@ -1,8 +1,9 @@
 <template>
   <div class="list">
-    My list:
+    <span v-if="listOfProducts.length">My list:</span>
+    <span v-if="!listOfProducts.length">nothing added to your list, go ahead and add something!</span>
     <b-list-group>
-      <b-list-group-item v-for="item in items" v-bind:key="item.id">
+      <b-list-group-item v-for="item in listOfProducts" v-bind:key="item.id">
         <ListItem :data="item" @remove="removeItem" />
       </b-list-group-item>
     </b-list-group>
@@ -14,14 +15,8 @@ import ListItem from "./ListItem.vue";
 
 export default {
   name: "List",
-  data() {
-    return {
-      items: [
-        { name: "one", id: "1" },
-        { name: "two", id: "2" },
-        { name: "three", id: "3" }
-      ]
-    };
+  props: {
+    listOfProducts: Array
   },
   components: {
       ListItem
@@ -29,7 +24,7 @@ export default {
   methods: {
     removeItem(value) {
       if (value) {
-        this.items = this.items.filter(item => item.id !== value);
+        this.listOfProducts = this.listOfProducts.filter(item => item.id !== value);
       }
     }
   }

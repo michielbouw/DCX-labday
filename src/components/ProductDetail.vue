@@ -2,7 +2,6 @@
   <div class="product-detail">
     <h2>
       {{product.naam}}
-      <b-button variant="outline-primary" class="float-right">+ add to my list</b-button>
     </h2>
     <hr />
     <h3>Nutritional values</h3>
