@@ -1,11 +1,8 @@
 <template>
   <div class="container">
-    <ul>
-      <li>
-        <v-link href="/">Home</v-link>
-        <v-link href="/database">Database</v-link>
-      </li>
-    </ul>
+    <v-link href="/">Home</v-link>
+    <v-link href="/database">Database</v-link>
+
     <h1>Amazing Environment</h1>
     <slot></slot>
   </div>
@@ -21,4 +18,7 @@
 </script>
 
 <style scoped>
+a {
+  margin-right: 16px;
+}
 </style>
