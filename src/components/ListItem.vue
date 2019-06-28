@@ -1,6 +1,6 @@
 <template>
-  <div class="list-item">
-    <div class="title" v-on:click="openProductDetails"><h3>{{ data.name }}</h3></div>
+  <div class="list-item" v-on:click="openProductDetails">
+    <div class="title"><h3>{{ data.name }}</h3></div>
     <div class="remove" v-on:click="removeItem">x</div>
   </div>
 </template>
@@ -16,8 +16,9 @@ export default {
     openProductDetails() {
       this.$emit('openProductDetails', this.data);
     },
-    removeItem() {
-      this.$emit('remove', this.data.key);
+    removeItem(e) {
+      e.preventDefault();
+      this.$emit('remove', this.data.id);
     }
   }
 };

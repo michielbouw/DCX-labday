@@ -32,7 +32,10 @@ export default {
       .get()
       .then(querySnapshot => {
         querySnapshot.forEach(doc => {
-          this.food.push(doc.data());
+          this.food.push({
+            ...doc.data(),
+            id: doc.id,
+          });
         });
       });
   },

@@ -24,13 +24,13 @@ export default {
   },
   methods: {
     openProductDetails(value) {
-      if(value) {
+      if (value) {
         this.$emit('openProductDetails', value);
       }
     },
     removeItem(value) {
       if (value) {
-        this.listOfProducts = this.listOfProducts.filter(item => item.id !== value);
+        this.$emit('removeProduct', value);
       }
     }
   }

@@ -4,7 +4,7 @@
       <div id="mainWidget">
         <div class="product-list">
           <SearchBar @addItem="addListItem"/>
-          <ProductList @openProductDetails="openProductDetails" :listOfProducts="listOfProducts" />
+          <ProductList @openProductDetails="openProductDetails" @removeProduct="removeProduct" :listOfProducts="listOfProducts" />
         </div>
 
         <div class="summary">
@@ -65,12 +65,12 @@ export default {
   methods: {
     openProductDetails: function(value) {
       this.selectedProduct = value;
-
-      console.log("open product", this.selectedProduct);
-      // return product;
     },
     addListItem(item) {
       this.listOfProducts.push(item);
+    },
+    removeProduct(id) {
+      this.listOfProducts = this.listOfProducts.filter(item => item.id !== id);
     }
   }
 };
