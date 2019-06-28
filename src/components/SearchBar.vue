@@ -35,7 +35,6 @@ export default {
           this.food.push(doc.data());
         });
       });
-
   },
   methods: {
     search(input) {
