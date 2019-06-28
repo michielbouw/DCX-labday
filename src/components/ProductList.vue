@@ -16,9 +16,6 @@ import ListItem from "./ListItem.vue";
 
 export default {
   name: "List",
-  data: {
-    selectedProduct: Object
-  },
   data() {
     return {
       items: [
@@ -38,7 +35,6 @@ export default {
     openProductDetails(value) {
       if(value) {
         this.$emit('openProductDetails', value);
-        // this.selectedProduct = value;
       }
     },
     removeItem(value) {

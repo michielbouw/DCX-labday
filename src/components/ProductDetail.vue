@@ -1,14 +1,6 @@
 <template>
   <div class="product-detail">
-    {{product.id}}
-
-    <!-- <h1>{{product.naam}}</h1>
-    <h2>Nutritional values</h2>
-    <p><label>Salt</label> 
-    <h2>
-      {{product.naam}}
-    </h2>
-    <hr />
+    <h1>{{product.name}}</h1>
     <h3>Nutritional values</h3>
     <p><label>Salt</label>
     {{product.zout}} grams</p>
@@ -33,15 +25,15 @@
 
     <h3>Waste seperation</h3>
     <p><label>Green waste</label>
-    {{product.afval.GFT? 'Yes': 'No'}}</p>
+    {{product.GFT? 'Yes': 'No'}}</p>
     <p><label>Paper</label>
-    {{product.afval.oudPapier? 'Yes': 'No'}}</p>
+    {{product.papier? 'Yes': 'No'}}</p>
     <p><label>Glass</label>
-    {{product.afval.glas? 'Yes': 'No'}}</p>
+    {{product.glas? 'Yes': 'No'}}</p>
     <p><label>Plastic</label>
-    {{product.afval.plastic? 'Yes': 'No'}}</p>
+    {{product.plastic? 'Yes': 'No'}}</p>
     <p><label>Residual waste</label>
-    {{product.afval.rest? 'Yes': 'No'}}</p> -->
+    {{product.rest? 'Yes': 'No'}}</p>
   </div>
 </template>
 
