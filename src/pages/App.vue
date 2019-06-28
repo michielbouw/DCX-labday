@@ -8,13 +8,14 @@
         </div>
 
         <div class="summary">
+          <ProductList @openProductDetails="openProductDetails" :selectedProduct="selectedProduct"/>
           <Summary />
         </div>
       </div>
 
       <div id="detailWidget">
         <div class="detail">
-          <ProductDetail :product="getProductDetails()"/>
+          <ProductDetail :product="selectedProduct" />
         </div>
       </div>
     </div>
@@ -58,12 +59,16 @@ export default {
   },
   data() {
     return {
-      listOfProducts: []
+      listOfProducts: [],
+      selectedProduct: Object
     };
   },
   methods: {
-    getProductDetails: function() {
-      return product;
+    openProductDetails: function(value) {
+      this.selectedProduct = value;
+      
+      console.log("open product", this.selectedProduct);
+      // return product;
     },
     addListItem(item) {
       this.listOfProducts.push(item);
