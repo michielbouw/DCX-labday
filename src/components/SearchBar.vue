@@ -1,7 +1,9 @@
 <template>
   <div class="search-bar">
-    <autocomplete :search="search" placeholder="Search for a product" @submit="handleSubmit"></autocomplete>
-    <h1>You've selected: {{selectedResult}}</h1>
+    <autocomplete class="input-group" inputClass="form-control" :search="search" placeholder="Search for a product" @submit="handleSubmit"></autocomplete>
+    <h2>You've selected:</h2>
+    {{selectedResult}}
+    <button>Add to my list</button>
   </div>
 </template>
 
@@ -215,5 +217,8 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
+.search-bar .autocomplete {
+  width: 100%;
+}
 </style>

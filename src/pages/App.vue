@@ -8,7 +8,7 @@
         </div>
 
         <div class="summary">
-          <Summary/>
+          <Summary />
         </div>
       </div>
 
