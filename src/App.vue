@@ -1,7 +1,24 @@
 <template>
   <div id="app">
+
+  <div id="mainWidget">
+      <div class="list">
+        <SearchBar/>
+      </div>
+
+      <div class="summary">
+        <h1>Hier komt de samenvatting</h1>
+      </div>
+    </div>
+
+    <div id="detailWidget">
+      <div class="detail">
+        <h1>Hier komt de detail</h1>
+      </div>
+    </div>
+
     <Main msg="Amazing Environment"/>
-    <SearchBar />
+    
   </div>
 </template>
 
@@ -26,5 +43,35 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.list {
+  background-color: blue;
+}
+
+.summary {
+  background-color: red;
+}
+
+.detail {
+  background-color: green;
+}
+
+@media (min-width: 768px) {
+  #app {
+  display: flex;
+}
+
+  #mainWidget {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+  }
+
+  #detailWidget {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
 }
 </style>
