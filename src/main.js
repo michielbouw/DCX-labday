@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from './App.vue'
+import routes from './routes'
 
 // Plugins
 import Autocomplete from '@trevoreyre/autocomplete-vue'
@@ -9,6 +9,24 @@ Vue.config.productionTip = false
 
 Vue.use(Autocomplete)
 
-new Vue({
-  render: h => h(App),
-}).$mount('#app')
+const app = new Vue({
+  el: '#app',
+  data: {
+    currentRoute: window.location.pathname
+  },
+  computed: {
+    ViewComponent() {
+      const matchingView = routes[this.currentRoute]
+      return matchingView
+        ? require('./pages/' + matchingView + '.vue').default
+        : require('./pages/404.vue').default
+    }
+  },
+  render(h) {
+    return h(this.ViewComponent)
+  }
+})
+
+window.addEventListener('popstate', () => {
+  app.currentRoute = window.location.pathname
+})

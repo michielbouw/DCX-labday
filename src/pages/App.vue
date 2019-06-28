@@ -1,28 +1,28 @@
 <template>
-  <div id="app">
+  <main-layout>
+    <div id="app">
+      <div id="mainWidget">
+        <div class="list">
+          <SearchBar />
+        </div>
 
-  <div id="mainWidget">
-      <div class="list">
-        <SearchBar/>
-        <FoodDatabase />
+        <div class="summary">
+          <h1>Hier komt de samenvatting</h1>
+        </div>
       </div>
 
-      <div class="summary">
-        <h1>Hier komt de samenvatting</h1>
+      <div id="detailWidget">
+        <div class="detail">
+          <ProductDetail :product="getProductDetails()" />
+        </div>
       </div>
     </div>
-
-    <div id="detailWidget">
-      <div class="detail">
-        <ProductDetail :product="getProductDetails()" />
-      </div>
-    </div>
-  </div>
+  </main-layout>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import SearchBar from './components/SearchBar.vue'
+import MainLayout from '../layouts/Main.vue'
+import SearchBar from '../components/SearchBar.vue'
 import ProductDetail from './components/ProductDetail.vue'
 
 const product = {
@@ -43,21 +43,14 @@ const product = {
         rest: true
     }
 };
-import FoodDatabase from './components/FoodDatabase.vue'
 
 export default {
   name: 'app',
   components: {
-    Header,
+    MainLayout,
     SearchBar,
-    FoodDatabase,
     ProductDetail
-  },
-  methods: {
-    getProductDetails: function() {
-      return product;
-    }
-  }  
+  }
 }
 </script>
 
