@@ -2,7 +2,7 @@
   <div class="list">
     <b>My list:</b>
     <br />
-    <span v-if="!listOfProducts.length">nothing added to your list, go ahead and add something!</span>
+    <span v-if="!(listOfProducts && listOfProducts.length)">nothing added to your list, go ahead and add something!</span>
     <b-list-group>
       <b-list-group-item v-for="item in listOfProducts" v-bind:key="item.id">
         <ListItem :data="item" @openProductDetails="openProductDetails" @remove="removeItem" />
@@ -19,26 +19,16 @@ export default {
   data: {
     selectedProduct: Object
   },
-  data() {
-    return {
-      items: [
-        { name: "one", id: "1" },
-        { name: "two", id: "2" },
-        { name: "three", id: "3" }
-      ]
-    };
-  },  
   props: {
     listOfProducts: Array
   },
   components: {
-      ListItem
+    ListItem
   },
   methods: {
     openProductDetails(value) {
       if(value) {
         this.$emit('openProductDetails', value);
-        // this.selectedProduct = value;
       }
     },
     removeItem(value) {

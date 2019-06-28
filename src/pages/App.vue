@@ -8,8 +8,7 @@
         </div>
 
         <div class="summary">
-          <ProductList @openProductDetails="openProductDetails" :selectedProduct="selectedProduct"/>
-          <Summary />
+          <Summary :listOfProducts="listOfProducts" />
         </div>
       </div>
 
@@ -66,7 +65,7 @@ export default {
   methods: {
     openProductDetails: function(value) {
       this.selectedProduct = value;
-      
+
       console.log("open product", this.selectedProduct);
       // return product;
     },
@@ -79,7 +78,7 @@ export default {
 
 <style>
 
-.body {
+html, body {
   background: rgb(236, 236, 236);
 }
 
