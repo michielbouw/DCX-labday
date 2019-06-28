@@ -16,7 +16,7 @@ export default {
   components: {
     Header,
     SearchBar,
-    FoodDatabase,
+    FoodDatabase
   }
 }
 </script>

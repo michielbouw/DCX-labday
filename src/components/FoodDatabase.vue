@@ -3,7 +3,8 @@
     <hr />
     <b>Food database:</b>
     <p v-for="item in food">
-      ID: {{ item.id }}, Name: {{ item.name }}, Date added: {{ item.createdAt }}
+      ID: {{ item.id }},
+      Name: {{ item.name }}
       <button class="button" @click="deleteFood(item.id)">Delete</button>
     </p>
     <hr />
