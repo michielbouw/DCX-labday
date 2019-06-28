@@ -50,6 +50,11 @@ export default {
     MainLayout,
     SearchBar,
     ProductDetail
+  },
+  methods: {
+    getProductDetails: function() {
+      return product;
+    }
   }
 }
 </script>
