@@ -1,5 +1,6 @@
 /node_modules
 /dist
 /test/unit/reports
+/.firebase
 
 .DS_Store

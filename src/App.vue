@@ -1,13 +1,27 @@
 <template>
   <div id="app">
-    <Main msg="Amazing Environment"/>
-    <SearchBar />
-    <ProductDetail :product="getProductDetails()" />
+
+  <div id="mainWidget">
+      <div class="list">
+        <SearchBar/>
+        <FoodDatabase />
+      </div>
+
+      <div class="summary">
+        <h1>Hier komt de samenvatting</h1>
+      </div>
+    </div>
+
+    <div id="detailWidget">
+      <div class="detail">
+        <ProductDetail :product="getProductDetails()" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import Main from './components/Main.vue'
+import Header from './components/Header.vue'
 import SearchBar from './components/SearchBar.vue'
 import ProductDetail from './components/ProductDetail.vue'
 
@@ -29,12 +43,14 @@ const product = {
         rest: true
     }
 };
+import FoodDatabase from './components/FoodDatabase.vue'
 
 export default {
   name: 'app',
   components: {
-    Main,
+    Header,
     SearchBar,
+    FoodDatabase,
     ProductDetail
   },
   methods: {
@@ -53,5 +69,35 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.list {
+  border: solid blue;
+}
+
+.summary {
+  border: solid red;
+}
+
+.detail {
+  border: solid green;
+}
+
+@media (min-width: 768px) {
+  #app {
+  display: flex;
+}
+
+  #mainWidget {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+  }
+
+  #detailWidget {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
 }
 </style>
