@@ -2,22 +2,22 @@
   <div class="main">
     <span>
       <b-button type="button" pill variant="info" v-on:click="filter">CO2</b-button>
-      <p v-if="CO2"> {{ CO2 }}  g</p>
+      <p v-if="(this.listOfProducts.map(item => item.CO2)).length">{{ (this.listOfProducts.map(item => item.CO2) || []).reduce((total, num) => total + num) }}  g</p>
     </span>
 
     <span>
       <b-button type="button" pill variant="info" v-on:click="filter">Salt</b-button>
-      <p v-if="Salt"> {{Salt}} g</p>
+      <p v-if="(this.listOfProducts.map(item => item.zout)).length">{{ (this.listOfProducts.map(item => item.zout) || []).reduce((total, num) => total + num) }} g</p>
     </span>
 
     <span>
       <b-button type="button" pill variant="info" v-on:click="filter">Sugar</b-button>
-      <p v-if="Sugar"> {{Sugar}} g </p>
+      <p v-if="(this.listOfProducts.map(item => item.suiker)).length">{{ (this.listOfProducts.map(item => item.suiker) || []).reduce((total, num) => total + num) }} g</p>
     </span>
 
     <span>
       <b-button type="button" pill variant="info" v-on:click="filter">Fat</b-button>
-      <p v-if="Fat"> {{Fat}} g</p>
+      <p v-if="(this.listOfProducts.map(item => item.vet)).length">{{ (this.listOfProducts.map(item => item.vet) || []).reduce((total, num) => total + num) }} g</p>
     </span>
   </div>
 </template>
@@ -29,18 +29,7 @@ export default {
     listOfProducts: Array
   },
   data: {
-    CO2: String,
-    Salt: String,
-    Fat: String,
-    Sugar: String,
-  },
-  data: function () {
-    return {
-      CO2: (this.listOfProducts.map(item => item.CO2) || []).reduce((total, num) => total - num),
-      Salt: (this.listOfProducts.map(item => item.zout) || []).reduce((total, num) => total - num),
-      Sugar: (this.listOfProducts.map(item => item.suiker) || []).reduce((total, num) => total - num),
-      Fat: (this.listOfProducts.map(item => item.vet) || []).reduce((total, num) => total - num),
-    }
+
   },
   methods: {
     filter: function () {

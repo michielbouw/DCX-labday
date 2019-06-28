@@ -4,7 +4,7 @@
       <div id="mainWidget">
         <div class="product-list">
           <SearchBar @addItem="addListItem"/>
-          <ProductList :listOfProducts="listOfProducts" />
+          <ProductList @openProductDetails="openProductDetails" :listOfProducts="listOfProducts" />
         </div>
 
         <div class="summary">
