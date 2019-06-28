@@ -11,63 +11,68 @@
     <b>Add new:</b>
 
     <span class="field">
-      <input v-model="name" placeholder="Name" />
+      <input v-model="model.name" placeholder="Name" />
     </span>
 
     <span class="field">
-      <input v-model="zout" type="number" placeholder="Salt" /> grams
+      <input v-model="model.zout" type="number" placeholder="Salt" /> grams
     </span>
 
     <span class="field">
-      <input v-model="suiker" type="number" placeholder="Sugar" /> grams
+      <input v-model="model.suiker" type="number" placeholder="Sugar" /> grams
     </span>
 
     <span class="field">
-      <input v-model="vet" type="number" placeholder="Fat" /> grams
+      <input v-model="model.vet" type="number" placeholder="Fat" /> grams
     </span>
 
     <span class="field">
-      <input v-model="CO2" type="number" placeholder="CO2" /> grams
+      <input v-model="model.CO2" type="number" placeholder="CO2" /> grams
     </span>
 
     <span class="field">
-      <input type="checkbox" id="checkbox1" v-model="vega">
+      <input type="checkbox" id="checkbox1" v-model="model.vega">
       <label for="checkbox1">Vega</label>
     </span>
 
     <span class="field">
-      <input type="checkbox" id="checkbox2" v-model="vegan">
+      <input type="checkbox" id="checkbox2" v-model="model.vegan">
       <label for="checkbox2">Vegan</label>
     </span>
 
     <span class="field">
-      <input type="checkbox" id="checkbox3" v-model="glutenvrij">
+      <input type="checkbox" id="checkbox3" v-model="model.glutenvrij">
       <label for="checkbox3">No glutes</label>
     </span>
 
     <span class="field">
-      <input type="checkbox" id="checkbox4" v-model="lactosevrij">
+      <input type="checkbox" id="checkbox4" v-model="model.lactosevrij">
       <label for="checkbox4">No lactose</label>
     </span>
 
     <span class="field">
-      <input type="checkbox" id="checkbox5" v-model="GFT">
+      <input type="checkbox" id="checkbox5" v-model="model.GFT">
       <label for="checkbox5">Green waste</label>
     </span>
 
     <span class="field">
-      <input type="checkbox" id="checkbox6" v-model="papier">
+      <input type="checkbox" id="checkbox6" v-model="model.papier">
       <label for="checkbox6">Paper</label>
     </span>
 
     <span class="field">
-      <input type="checkbox" id="checkbox7" v-model="glas">
+      <input type="checkbox" id="checkbox7" v-model="model.glas">
       <label for="checkbox7">Glass</label>
     </span>
 
     <span class="field">
-      <input type="checkbox" id="checkbox8" v-model="plastic">
+      <input type="checkbox" id="checkbox8" v-model="model.plastic">
       <label for="checkbox8">Plastic</label>
+    </span>
+
+    <span class="field">
+      <input type="checkbox" id="checkbox8" v-model="model.rest">
+      <label for="checkbox8">Rest waste</label>
     </span>
 
     <button v-on:click="addFood()">Add</button>
@@ -92,7 +97,8 @@ const defaultFoodItem = {
   GFT: false,
   papier: false,
   glas: false,
-  plastic: false
+  plastic: false,
+  rest: false
 }
 
 export default {
@@ -106,7 +112,7 @@ export default {
   data () {
     return {
       food: [],
-      ...defaultFoodItem
+      model: defaultFoodItem
     }
   },
   mounted() {
@@ -128,7 +134,7 @@ export default {
   methods: {
     addFood () {
       const createdAt = new Date()
-      const { name, zout, suiker, vet, CO2, vega, vegan, glutenvrij, lactosevrij, GFT, papier, glas, plastic } = this
+      const { name, zout, suiker, vet, CO2, vega, vegan, glutenvrij, lactosevrij, GFT, papier, glas, plastic } = this.model
       const newItem = {
         ...defaultFoodItem,
         name,
@@ -146,7 +152,7 @@ export default {
         glas,
         plastic
       }
-      foodCollection.add({ name: this.name, createdAt })
+      foodCollection.add(newItem)
         .then(doc => {
           this.food.push({
             ...newItem,
@@ -154,7 +160,7 @@ export default {
             id: doc.id
           });
         })
-      this.name = ''
+      this.model = defaultFoodItem
     },
     deleteFood (id) {
       foodCollection.doc(id).delete()
