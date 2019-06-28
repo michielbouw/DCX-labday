@@ -1,7 +1,7 @@
 <template>
   <main-layout>
     <b>Food database:</b>
-    <p v-bind:key="key" v-for="(item, key) in food">
+    <p v-for="item in food" v-bind:key="item.id">
       ID: {{ item.id }},
       Name: {{ item.name }}
       <button class="button" @click="deleteFood(item.id)">Delete</button>
@@ -116,6 +116,7 @@ export default {
     }
   },
   mounted() {
+    // get content from database
     foodCollection
       .orderBy('name', 'asc')
       .get()
@@ -123,10 +124,8 @@ export default {
         querySnapshot.forEach(doc => {
           this.food.push({
             ...defaultFoodItem,
-            key: doc.id,
+            ...doc.data(),
             id: doc.id,
-            name: doc.data().name,
-            createdAt: doc.data().createdAt,
           });
         });
       });

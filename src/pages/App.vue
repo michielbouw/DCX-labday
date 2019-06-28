@@ -2,13 +2,14 @@
   <main-layout>
     <div id="app">
       <div id="mainWidget">
-        <div class="list">
-          <SearchBar />
+        <div class="product-list">
+          <SearchBar @addItem="addListItem"/>
+          <ProductList :listOfProducts="listOfProducts" />
         </div>
 
         <div class="summary">
           <ProductList @openProductDetails="openProductDetails" :selectedProduct="selectedProduct"/>
-          <h1>Hier komt de samenvatting</h1>
+          <Summary />
         </div>
       </div>
 
@@ -22,40 +23,45 @@
 </template>
 
 <script>
-import MainLayout from '../layouts/Main.vue'
-import SearchBar from '../components/SearchBar.vue'
-import ProductDetail from '../components/ProductDetail.vue'
-import ProductList from '../components/ProductList.vue'
+import MainLayout from "../layouts/Main.vue";
+import SearchBar from "../components/SearchBar.vue";
+import ProductDetail from "../components/ProductDetail.vue";
+import Summary from "../components/Summary.vue";
+import ProductList from "../components/ProductList.vue";
 
 const product = {
-    naam: 'Pastasaus',
-    zout: '14',
-    suiker: '15',
-    vet: '30',
-    CO2: '50',
-    vega: true,
-    vegan: false,
-    glutenvrij: true,
-    lactosevrij: false,
-    afval: {
-        GFT: true,
-        oudPapier: true,
-        glas: true,
-        plastic: true,
-        rest: true
-    }
+  naam: "Pastasaus",
+  zout: "14",
+  suiker: "15",
+  vet: "30",
+  CO2: "50",
+  vega: true,
+  vegan: false,
+  glutenvrij: true,
+  lactosevrij: false,
+  afval: {
+    GFT: true,
+    oudPapier: true,
+    glas: true,
+    plastic: true,
+    rest: true
+  }
 };
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     MainLayout,
     SearchBar,
     ProductDetail,
+    Summary,
     ProductList
   },
-  data: {
-    selectedProduct: Object
+  data() {
+    return {
+      listOfProducts: [],
+      selectedProduct: Object
+    };
   },
   methods: {
     openProductDetails: function(value) {
@@ -63,14 +69,17 @@ export default {
       
       console.log("open product", this.selectedProduct);
       // return product;
+    },
+    addListItem(item) {
+      this.listOfProducts.push(item);
     }
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -78,8 +87,9 @@ export default {
   margin-top: 60px;
 }
 
-.list {
+.product-list {
   border: solid blue;
+  padding: 2em;
 }
 
 .summary {
@@ -92,8 +102,8 @@ export default {
 
 @media (min-width: 768px) {
   #app {
-  display: flex;
-}
+    display: flex;
+  }
 
   #mainWidget {
     display: flex;

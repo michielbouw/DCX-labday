@@ -1,10 +1,11 @@
 <template>
   <div class="list">
-    <ul>
-      <li v-for="item in items" v-bind:key="item.id">
+    My list:
+    <b-list-group>
+      <b-list-group-item v-for="item in listOfProducts" v-bind:key="item.id">
         <ListItem :data="item" @openProductDetails="openProductDetails" @remove="removeItem" />
-      </li>
-    </ul>
+      </b-list-group-item>
+    </b-list-group>
   </div>
 </template>
 
@@ -24,6 +25,9 @@ export default {
         { name: "three", id: "3" }
       ]
     };
+  },  
+  props: {
+    listOfProducts: Array
   },
   components: {
       ListItem
@@ -37,16 +41,15 @@ export default {
     },
     removeItem(value) {
       if (value) {
-        this.items = this.items.filter(item => item.id !== value);
+        this.listOfProducts = this.listOfProducts.filter(item => item.id !== value);
       }
     }
   }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-ul {
-  list-style: none;
+.list {
+  margin-top: 32px;
 }
 </style>
