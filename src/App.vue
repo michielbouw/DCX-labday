@@ -8,7 +8,7 @@
       </div>
 
       <div class="summary">
-        <h1>Hier komt de samenvatting</h1>
+        <Summary/>
       </div>
     </div>
 
@@ -27,13 +27,15 @@
 import Header from './components/Header.vue'
 import SearchBar from './components/SearchBar.vue'
 import FoodDatabase from './components/FoodDatabase.vue'
+import Summary from './components/Summary.vue'
 
 export default {
   name: 'app',
   components: {
     Header,
     SearchBar,
-    FoodDatabase
+    FoodDatabase,
+    Summary
   }
 }
 </script>
@@ -45,7 +47,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 30px 60px;
 }
 
 .list {
