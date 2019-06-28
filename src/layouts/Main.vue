@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Amazing Environment</h1>
+    <h1>How healthy am I?</h1>
     <slot></slot>
   </div>
 </template>
@@ -11,5 +11,10 @@
 <style scoped>
 a {
   margin-right: 16px;
+}
+
+.container {
+  background: rgb(236, 236, 236);
+  padding-top: 16px;
 }
 </style>

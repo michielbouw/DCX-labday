@@ -1,5 +1,5 @@
 <template>
-  <main-layout>
+  <main-layout class="body">
     <div id="app">
       <div id="mainWidget">
         <div class="product-list">
@@ -8,13 +8,14 @@
         </div>
 
         <div class="summary">
+          <ProductList @openProductDetails="openProductDetails" :selectedProduct="selectedProduct"/>
           <Summary />
         </div>
       </div>
 
       <div id="detailWidget">
         <div class="detail">
-          <ProductDetail :product="getProductDetails()"/>
+          <ProductDetail :product="selectedProduct" />
         </div>
       </div>
     </div>
@@ -58,12 +59,16 @@ export default {
   },
   data() {
     return {
-      listOfProducts: []
+      listOfProducts: [],
+      selectedProduct: Object
     };
   },
   methods: {
-    getProductDetails: function() {
-      return product;
+    openProductDetails: function(value) {
+      this.selectedProduct = value;
+      
+      console.log("open product", this.selectedProduct);
+      // return product;
     },
     addListItem(item) {
       this.listOfProducts.push(item);
@@ -73,26 +78,38 @@ export default {
 </script>
 
 <style>
+
+.body {
+  background: rgb(236, 236, 236);
+}
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 32px;
 }
 
 .product-list {
-  border: solid blue;
   padding: 2em;
+  margin: 0em 2em 2em 0em;
+  background: white;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
 }
 
 .summary {
-  border: solid red;
+  margin: 0em 2em 2em 0em;
+  background: white;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
 }
 
 .detail {
-  border: solid green;
+margin: 0 2em 2em 0;
+background: white;
+box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+
 }
 
 @media (min-width: 768px) {
