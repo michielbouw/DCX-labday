@@ -70,6 +70,11 @@
       <label for="checkbox8">Plastic</label>
     </span>
 
+    <span class="field">
+      <input type="checkbox" id="checkbox8" v-model="model.rest">
+      <label for="checkbox8">Rest waste</label>
+    </span>
+
     <button v-on:click="addFood()">Add</button>
   </main-layout>
 </template>
@@ -92,7 +97,8 @@ const defaultFoodItem = {
   GFT: false,
   papier: false,
   glas: false,
-  plastic: false
+  plastic: false,
+  rest: false
 }
 
 export default {
@@ -146,7 +152,7 @@ export default {
         glas,
         plastic
       }
-      foodCollection.add({ name: this.name, createdAt })
+      foodCollection.add(newItem)
         .then(doc => {
           this.food.push({
             ...newItem,
