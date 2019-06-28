@@ -155,7 +155,6 @@ export default {
         .then(doc => {
           this.food.push({
             ...newItem,
-            key: doc.id,
             id: doc.id
           });
         })
