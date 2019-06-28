@@ -1,8 +1,5 @@
 <template>
   <div class="container">
-    <v-link href="/">Home</v-link>
-    <v-link href="/database">Database</v-link>
-
     <h1>How healthy am I?</h1>
     <slot></slot>
   </div>
@@ -18,5 +15,6 @@ a {
 
 .container {
   background: rgb(236, 236, 236);
+  padding-top: 16px;
 }
 </style>
