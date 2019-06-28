@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: 'summary',
+  name: 'summary-component',
   data: {
     CO2: String,
     Salt: String,
