@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>How healthy am I?</h1>
+    <h1>Carbon food print</h1>
     <slot></slot>
   </div>
 </template>
