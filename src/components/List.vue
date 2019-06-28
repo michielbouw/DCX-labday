@@ -2,7 +2,7 @@
   <div class="list">
     <ul>
       <li v-for="item in items" v-bind:key="item.id">
-        <ListItem :data="item" />
+        <ListItem :data="item" @remove="removeItem" />
       </li>
     </ul>
   </div>
@@ -25,7 +25,13 @@ export default {
   components: {
       ListItem
   },
-  methods: {}
+  methods: {
+    removeItem(value) {
+      if (value) {
+        this.items = this.items.filter(item => item.id !== value);
+      }
+    }
+  }
 };
 </script>
 

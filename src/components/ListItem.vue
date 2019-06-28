@@ -12,13 +12,10 @@ export default {
   props: {
     data: Object
   },
-  data() {
-    return {};
-  },
   components: {},
   methods: {
     removeItem() {
-      this.$emit('remove');
+      this.$emit('remove', this.data.id);
     }
   }
 };
