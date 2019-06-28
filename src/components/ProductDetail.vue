@@ -1,39 +1,39 @@
 <template>
   <div class="product-detail">
     <h1>{{product.naam}}</h1>
-    <h2>Voedingswaarden</h2>
-    <p><label>Zout</label> 
-    {{product.zout}} g</p>
-    <p><label>Suiker</label> 
-    {{product.suiker}} g</p>
-    <p><label>Vet</label> 
-    {{product.vet}} g</p>
+    <h2>Nutritional values</h2>
+    <p><label>Salt</label> 
+    {{product.zout}} grams</p>
+    <p><label>Sugar</label> 
+    {{product.suiker}} grams</p>
+    <p><label>Fat</label> 
+    {{product.vet}} grams</p>
 
-    <h2>Uitstoot</h2>
-    <p><label>CO2 uitstoot bij productie</label> 
-    {{product.CO2}} g</p>
+    <h2>Emission</h2>
+    <p><label>CO2 emissions during production</label> 
+    {{product.CO2}} grams</p>
 
-    <h2>Kenmerken</h2>
+    <h2>Characteristics</h2>
     <p><label>Vega</label> 
-    {{product.vega? 'Ja': 'Nee'}}</p>
+    {{product.vega? 'Yes': 'No'}}</p>
     <p><label>Vegan</label> 
-    {{product.vegan? 'Ja': 'Nee'}}</p>
-    <p><label>Glutenvrij</label> 
-    {{product.glutenvrij? 'Ja': 'Nee'}}</p>
-    <p><label>Lactosevrij</label> 
-    {{product.lactosevrij? 'Ja': 'Nee'}}</p>
+    {{product.vegan? 'Yes': 'No'}}</p>
+    <p><label>Gluten free</label> 
+    {{product.glutenvrij? 'Yes': 'No'}}</p>
+    <p><label>Lactose free</label> 
+    {{product.lactosevrij? 'Yes': 'No'}}</p>
 
-    <h2>Afvalscheiding</h2>
-    <p><label>GFT</label> 
-    {{product.afval.GFT? 'Ja': 'Nee'}}</p>
-    <p><label>Oud papier</label> 
-    {{product.afval.oudPapier? 'Ja': 'Nee'}}</p>
-    <p><label>Glas</label> 
-    {{product.afval.glas? 'Ja': 'Nee'}}</p>
+    <h2>Waste seperation</h2>
+    <p><label>Green waste</label> 
+    {{product.afval.GFT? 'Yes': 'No'}}</p>
+    <p><label>Paper</label> 
+    {{product.afval.oudPapier? 'Yes': 'No'}}</p>
+    <p><label>Glass</label> 
+    {{product.afval.glas? 'Yes': 'No'}}</p>
     <p><label>Plastic</label> 
-    {{product.afval.plastic? 'Ja': 'Nee'}}</p>
-    <p><label>Restafval</label> 
-    {{product.afval.rest? 'Ja': 'Nee'}}</p>
+    {{product.afval.plastic? 'Yes': 'No'}}</p>
+    <p><label>Residual waste</label> 
+    {{product.afval.rest? 'Yes': 'No'}}</p>
   </div>
 </template>
 
