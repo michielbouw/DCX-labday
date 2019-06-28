@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <Main msg="Amazing Environment"/>
+    <SearchBar />
   </div>
 </template>
 
 <script>
 import Main from './components/Main.vue'
+import SearchBar from './components/SearchBar.vue'
 
 export default {
   name: 'app',
   components: {
-    Main
+    Main,
+    SearchBar
   }
 }
 </script>
