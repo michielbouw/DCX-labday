@@ -1,6 +1,5 @@
 <template>
   <div class="list-item">
-    <div class="rating">{{ data.CO2 }}</div>
     <div class="title" v-on:click="openProductDetails"><h3>{{ data.name }}</h3></div>
     <div class="remove" v-on:click="removeItem">x</div>
   </div>
