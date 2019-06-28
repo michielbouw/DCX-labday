@@ -2,8 +2,9 @@
   <main-layout>
     <div id="app">
       <div id="mainWidget">
-        <div class="list">
+        <div class="productList">
           <SearchBar />
+          <ProductList />
         </div>
 
         <div class="summary">
@@ -25,6 +26,7 @@ import MainLayout from '../layouts/Main.vue'
 import SearchBar from '../components/SearchBar.vue'
 import ProductDetail from '../components/ProductDetail.vue'
 import Summary from '../components/Summary.vue'
+import ProductList from '../components/ProductList.vue'
 
 const product = {
     naam: 'Pastasaus',
@@ -51,7 +53,8 @@ export default {
     MainLayout,
     SearchBar,
     ProductDetail,
-    Summary
+    Summary,
+    ProductList
   },
   methods: {
     getProductDetails: function() {
@@ -71,8 +74,9 @@ export default {
   margin-top: 60px;
 }
 
-.list {
+.productList {
   border: solid blue;
+  padding: 2em;
 }
 
 .summary {
@@ -81,6 +85,7 @@ export default {
 
 .detail {
   border: solid green;
+  padding: 2em;
 }
 
 @media (min-width: 768px) {
