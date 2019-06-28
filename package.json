@@ -6,10 +6,12 @@
     "start": "npm run serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "npm run build && firebase login && firebase deploy"
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "firebase": "^6.2.4",
     "vue": "^2.6.10"
   },
   "devDependencies": {
