@@ -8,12 +8,11 @@
         </div>
 
         <div class="summary">
-          <!-- <ProductList @openProductDetails="openProductDetails" :selectedProduct="selectedProduct"/> -->
           <Summary />
         </div>
       </div>
 
-      <div id="detailWidget">
+      <div v-if="Object.keys(selectedProduct).length > 0" id="detailWidget">
         <div class="detail">
           <ProductDetail :product="selectedProduct" />
         </div>
@@ -79,7 +78,7 @@ export default {
 
 <style>
 
-.body {
+html {
   background: rgb(236, 236, 236);
 }
 
