@@ -13,7 +13,7 @@
 
       <div id="detailWidget">
         <div class="detail">
-          <h1>Hier komt de detail</h1>
+          <ProductDetail :product="getProductDetails()" />
         </div>
       </div>
     </div>
@@ -23,12 +23,33 @@
 <script>
 import MainLayout from '../layouts/Main.vue'
 import SearchBar from '../components/SearchBar.vue'
+import ProductDetail from './components/ProductDetail.vue'
+
+const product = {
+    naam: 'Pastasaus',
+    zout: '14',
+    suiker: '15',
+    vet: '30',
+    CO2: '50',
+    vega: true,
+    vegan: false,
+    glutenvrij: true,
+    lactosevrij: false,
+    afval: {
+        GFT: true,
+        oudPapier: true,
+        glas: true,
+        plastic: true,
+        rest: true
+    }
+};
 
 export default {
   name: 'app',
   components: {
     MainLayout,
-    SearchBar
+    SearchBar,
+    ProductDetail
   }
 }
 </script>
