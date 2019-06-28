@@ -23,7 +23,7 @@
 <script>
 import MainLayout from '../layouts/Main.vue'
 import SearchBar from '../components/SearchBar.vue'
-import ProductDetail from './components/ProductDetail.vue'
+import ProductDetail from '../components/ProductDetail.vue'
 
 const product = {
     naam: 'Pastasaus',
@@ -50,6 +50,11 @@ export default {
     MainLayout,
     SearchBar,
     ProductDetail
+  },
+  methods: {
+    getProductDetails: function() {
+      return product;
+    }
   }
 }
 </script>
