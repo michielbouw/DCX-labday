@@ -6,7 +6,6 @@
       :get-result-value="getResultValue"
       @submit="handleSubmit"
     ></autocomplete>
-    <h1>You've selected: {{selectedResult}}</h1>
   </div>
 </template>
 
@@ -46,7 +45,7 @@ export default {
       });
     },
     handleSubmit(result) {
-      this.selectedResult = result;
+      this.$emit('addItem', result);
     },
     getResultValue(result) {
       return result.name;
