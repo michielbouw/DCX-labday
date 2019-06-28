@@ -123,10 +123,9 @@ export default {
         querySnapshot.forEach(doc => {
           this.food.push({
             ...defaultFoodItem,
+            ...doc.data(),
             key: doc.id,
             id: doc.id,
-            name: doc.data().name,
-            createdAt: doc.data().createdAt,
           });
         });
       });
