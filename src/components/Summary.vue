@@ -4,7 +4,7 @@
           <button v-on:click="filter">CO2</button>
           <p v-if="CO2"> {{ CO2 }}  g</p>
       </span>
-      
+
       <span>
           <button v-on:click="filter">Salt</button>
           <p v-if="Salt"> {{Salt}} g</p>
@@ -14,7 +14,7 @@
           <button v-on:click="filter">Sugar</button>
           <p v-if="Sugar"> {{Sugar}}g </p>
       </span>
-      
+
       <span>
           <button v-on:click="filter">Fat</button>
           <p v-if="Fat"> {{Fat}} g</p>
@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: 'Amazing Environment',
+  name: 'summary',
   data: {
     CO2: String,
     Salt: String,
@@ -41,10 +41,10 @@ export default {
 },
   methods: {
     filter: function () {
-      alert("Hello World"); 
+      alert("Hello World");
     }
   }
-}   
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
