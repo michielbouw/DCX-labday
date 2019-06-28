@@ -85,7 +85,6 @@ export default {
 
 .detail {
   border: solid green;
-  padding: 2em;
 }
 
 @media (min-width: 768px) {

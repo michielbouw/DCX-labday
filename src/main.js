@@ -1,13 +1,17 @@
 import Vue from 'vue'
 import routes from './routes'
+import BootstrapVue from 'bootstrap-vue'
 
 // Plugins
 import Autocomplete from '@trevoreyre/autocomplete-vue'
 import '@trevoreyre/autocomplete-vue/dist/style.css'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.config.productionTip = false
 
 Vue.use(Autocomplete)
+Vue.use(BootstrapVue)
 
 const app = new Vue({
   el: '#app',
